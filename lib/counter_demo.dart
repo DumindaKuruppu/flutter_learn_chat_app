@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CounterDemo extends StatefulWidget {
-  const CounterDemo({super.key});
+  Color buttonColor;
+  CounterDemo({super.key, required this.buttonColor});
 
   @override
   State<CounterDemo> createState() => _CounterDemoState();
@@ -9,6 +10,7 @@ class CounterDemo extends StatefulWidget {
 
 class _CounterDemoState extends State<CounterDemo> {
   int counter = 0;
+
   void increment() {
     setState(() {
       counter++;
@@ -19,8 +21,9 @@ class _CounterDemoState extends State<CounterDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        backgroundColor: widget.buttonColor,
         onPressed: increment,
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white),
       ),
       body: Center(child: Text("$counter", style: TextStyle(fontSize: 30))),
     );
