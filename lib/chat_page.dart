@@ -4,11 +4,12 @@ import 'package:learn_flutter/widgets/chat_bubble.dart';
 import 'package:learn_flutter/widgets/chat_input.dart';
 
 class ChatPage extends StatelessWidget {
-  final String userName;
-  const ChatPage({super.key, required this.userName});
+  const ChatPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userName = ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Hi $userName!"),
@@ -23,7 +24,7 @@ class ChatPage extends StatelessWidget {
               );
             },
             child: IconButton(
-              onPressed: () => {Navigator.pop(context)},
+              onPressed: () => {Navigator.pushReplacementNamed(context, '/')},
               icon: Icon(Icons.logout),
             ),
           ),
