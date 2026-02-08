@@ -1,10 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/counter_demo.dart';
+import 'package:learn_flutter/models/chat_message_entity.dart';
 import 'package:learn_flutter/widgets/chat_bubble.dart';
 import 'package:learn_flutter/widgets/chat_input.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({super.key});
+  ChatPage({super.key});
+
+  final List<ChatMessageEntity> _messages = [
+    ChatMessageEntity(
+      author: Author(userName: 'duminda'),
+      createdAt: 2131231242,
+      id: '1',
+      text: 'Hi',
+    ),
+    ChatMessageEntity(
+      author: Author(userName: 'pooja'),
+      createdAt: 2131231442,
+      id: '1',
+      text: 'ඇයි මොකද?',
+      imageUrl: 'https://3009709.youcanlearnit.net/Alien_LIL_131338.png',
+    ),
+    ChatMessageEntity(
+      author: Author(userName: 'duminda'),
+      createdAt: 2131234242,
+      id: '1',
+      text: 'Bye!',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +57,13 @@ class ChatPage extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: 4,
+              itemCount: _messages.length,
               itemBuilder: (context, index) {
                 return ChatBubble(
-                  alignment: index % 2 == 0
-                      ? Alignment.centerLeft
-                      : Alignment.centerRight,
-                  message: "Hello I'm Duminda",
+                  alignment: _messages[index].author.userName == 'duminda'
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
+                  entity: _messages[index],
                 );
               },
             ),
