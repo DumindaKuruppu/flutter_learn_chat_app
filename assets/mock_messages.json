@@ -1,0 +1,52 @@
+[
+  {
+    "author": {
+      "username": "duminda"
+    },
+    "createdAt": 1598438497000,
+    "id": "10001",
+    "text": "Hi"
+  },
+  {
+    "author": {
+      "username": "duminda"
+    },
+    "createdAt": 1598438498000,
+    "id": "10002",
+    "text": "ඇයි මොකද?"
+  },
+  {
+    "author": {
+      "username": "janeDoe"
+    },
+    "createdAt": 1598438599000,
+    "id": "10003",
+    "text": "පලයං යන්න",
+    "image": "https://pixelford.com/api/img/small/Clouds in a blue sky_LIL_134208.jpg"
+  },
+  {
+    "author": {
+      "username": "duminda"
+    },
+    "createdAt": 1598438599000,
+    "id": "10004",
+    "text": "Oh that looks wonderful!"
+  },
+  {
+    "author": {
+      "username": "duminda"
+    },
+    "createdAt": 1598438599000,
+    "id": "10004",
+    "text": "Pixel really misses you btw!",
+    "image": "https://pixelford.com/api/img/small/Dog_LIL_134140.jpg"
+  },
+  {
+    "author": {
+      "username": "janeDoe"
+    },
+    "createdAt": 1598438599000,
+    "id": "10003",
+    "text": "Oh nooo! I do too!"
+  }
+]
