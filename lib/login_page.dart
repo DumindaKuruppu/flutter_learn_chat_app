@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/chat_page.dart';
+import 'package:learn_flutter/utils/spacers.dart';
 import 'package:learn_flutter/utils/textField_styles.dart';
 import 'package:learn_flutter/widgets/login_text.dart';
 
@@ -55,7 +56,7 @@ class LoginPage extends StatelessWidget {
                   color: Colors.blue,
                 ),
               ),
-              SizedBox(height: 24),
+              verticalSpacing(24),
               Form(
                 key: _formKey,
                 child: Column(
@@ -74,7 +75,7 @@ class LoginPage extends StatelessWidget {
                       },
                       controller: userNameController,
                     ),
-                    SizedBox(height: 24),
+                    verticalSpacing(24),
                     LoginTextField(
                       hintText: 'Enter your password',
                       validator: (value) {
@@ -93,7 +94,7 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 24),
+              verticalSpacing(24),
               ElevatedButton(
                 onPressed: () {
                   loginUser(context);
