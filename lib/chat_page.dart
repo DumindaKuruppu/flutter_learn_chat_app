@@ -4,13 +4,14 @@ import 'package:learn_flutter/widgets/chat_bubble.dart';
 import 'package:learn_flutter/widgets/chat_input.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({super.key});
+  final String userName;
+  const ChatPage({super.key, required this.userName});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hi Duminda!"),
+        title: Text("Hi $userName!"),
         actions: [
           GestureDetector(
             onLongPress: () {
