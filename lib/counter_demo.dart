@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CounterDemo extends StatefulWidget {
-  Color buttonColor;
-  CounterDemo({super.key, required this.buttonColor});
+  final Color buttonColor;
+  const CounterDemo({super.key, required this.buttonColor});
 
   @override
   State<CounterDemo> createState() => _CounterDemoState();
@@ -12,9 +12,23 @@ class _CounterDemoState extends State<CounterDemo> {
   int counter = 0;
 
   void increment() {
-    setState(() {
-      counter++;
-    });
+    if (mounted) {
+      setState(() {
+        counter++;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
   @override
