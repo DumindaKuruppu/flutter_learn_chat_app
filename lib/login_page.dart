@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/chat_page.dart';
 import 'package:learn_flutter/utils/spacers.dart';
-import 'package:learn_flutter/utils/textField_styles.dart';
 import 'package:learn_flutter/widgets/login_text.dart';
 
 class LoginPage extends StatelessWidget {
@@ -56,6 +54,8 @@ class LoginPage extends StatelessWidget {
                   color: Colors.blue,
                 ),
               ),
+              verticalSpacing(24),
+              Image.asset('assets/illustration.png', height: 200),
               verticalSpacing(24),
               Form(
                 key: _formKey,
