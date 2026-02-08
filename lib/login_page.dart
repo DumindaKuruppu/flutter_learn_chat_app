@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/utils/spacers.dart';
 import 'package:learn_flutter/widgets/login_text.dart';
+import 'package:social_media_buttons/social_media_button.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -106,7 +107,14 @@ class LoginPage extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {},
-                child: Column(children: [Text("@dumindaKuruppu")]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SocialMediaButton.github(),
+                    SocialMediaButton.instagram(),
+                    SocialMediaButton.twitter(),
+                  ],
+                ),
               ),
             ],
           ),
