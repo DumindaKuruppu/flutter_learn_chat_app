@@ -27,7 +27,7 @@ class ChatPage extends StatelessWidget {
                   alignment: index % 2 == 0
                       ? Alignment.centerLeft
                       : Alignment.centerRight,
-                  message: "message",
+                  message: "Hello I'm Duminda",
                 );
               },
             ),
