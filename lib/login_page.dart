@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/chat_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
   final _formKey = GlobalKey<FormState>();
 
-  void loginUser() {
+  void loginUser(context) {
     if (_formKey.currentState != null && _formKey.currentState!.validate()) {
       print("Login Success!");
       print(userNameController.text);
       print(passwordController.text);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ChatPage()),
+      );
     } else {
       print("not successfully");
     }
@@ -99,7 +104,9 @@ class LoginPage extends StatelessWidget {
               ),
               SizedBox(height: 24),
               ElevatedButton(
-                onPressed: loginUser,
+                onPressed: () {
+                  loginUser(context);
+                },
                 child: Text(
                   "Login",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),

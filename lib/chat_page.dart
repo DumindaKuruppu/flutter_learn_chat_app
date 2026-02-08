@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/counter_demo.dart';
 import 'package:learn_flutter/widgets/chat_bubble.dart';
 import 'package:learn_flutter/widgets/chat_input.dart';
 
@@ -11,9 +12,19 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Hi Duminda!"),
         actions: [
-          IconButton(
-            onPressed: () => {print("logout Clicked")},
-            icon: Icon(Icons.logout),
+          GestureDetector(
+            onLongPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CounterDemo(buttonColor: Colors.black),
+                ),
+              );
+            },
+            child: IconButton(
+              onPressed: () => {Navigator.pop(context)},
+              icon: Icon(Icons.logout),
+            ),
           ),
         ],
       ),
