@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/chat_page.dart';
+import 'package:learn_flutter/utils/textField_styles.dart';
+import 'package:learn_flutter/widgets/login_text.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -58,7 +60,8 @@ class LoginPage extends StatelessWidget {
                 key: _formKey,
                 child: Column(
                   children: [
-                    TextFormField(
+                    LoginTextField(
+                      hintText: 'Enter your username',
                       validator: (value) {
                         if (value != null &&
                             value.isNotEmpty &&
@@ -70,16 +73,10 @@ class LoginPage extends StatelessWidget {
                         return null;
                       },
                       controller: userNameController,
-                      decoration: InputDecoration(
-                        hint: Text("Enter your username"),
-                        hintStyle: TextStyle(color: Colors.blueGrey),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                        ),
-                      ),
                     ),
                     SizedBox(height: 24),
-                    TextFormField(
+                    LoginTextField(
+                      hintText: 'Enter your password',
                       validator: (value) {
                         if (value != null &&
                             value.isNotEmpty &&
@@ -91,14 +88,7 @@ class LoginPage extends StatelessWidget {
                         return null;
                       },
                       controller: passwordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        hint: Text("Enter your password"),
-                        hintStyle: TextStyle(color: Colors.blueGrey),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(12)),
-                        ),
-                      ),
+                      hasAsterisks: true,
                     ),
                   ],
                 ),
