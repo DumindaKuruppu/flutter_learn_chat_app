@@ -6,19 +6,19 @@ part of 'image_modal.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PixelFormImage _$PixelFormImageFromJson(Map<String, dynamic> json) =>
-    PixelFormImage(
+PixelFordImage _$PixelFordImageFromJson(Map<String, dynamic> json) =>
+    PixelFordImage(
       id: json['id'] as String,
-      fileName: json['fileName'] as String,
+      fileName: json['filename'] as String,
       title: json['title'] as String,
       urlFullSize: json['url_full_size'] as String,
       urlSmallSize: json['url_small_size'] as String,
     );
 
-Map<String, dynamic> _$PixelFormImageToJson(PixelFormImage instance) =>
+Map<String, dynamic> _$PixelFordImageToJson(PixelFordImage instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'fileName': instance.fileName,
+      'filename': instance.fileName,
       'title': instance.title,
       'url_full_size': instance.urlFullSize,
       'url_small_size': instance.urlSmallSize,
