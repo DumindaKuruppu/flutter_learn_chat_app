@@ -4,7 +4,8 @@ import 'package:learn_flutter/repository/image_repository.dart';
 import '../models/image_modal.dart';
 
 class NetworkImagePickerBody extends StatelessWidget {
-  NetworkImagePickerBody({super.key});
+  final Function(String) onImageSelected;
+  NetworkImagePickerBody({super.key, required this.onImageSelected});
 
   final ImageRepository imageRepository = ImageRepository();
   @override
@@ -17,7 +18,12 @@ class NetworkImagePickerBody extends StatelessWidget {
               return GridView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  return Image.network(snapshot.data![index].urlSmallSize);
+                  return GestureDetector(
+                    onTap: () {
+                      onImageSelected(snapshot.data![index].urlSmallSize);
+                    },
+                    child: Image.network(snapshot.data![index].urlSmallSize),
+                  );
                 },
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
