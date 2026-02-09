@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/chat_page.dart';
+import 'package:learn_flutter/services/auth_service.dart';
+import 'package:provider/provider.dart';
 
 import 'login_page.dart';
 
 void main() {
-  runApp(ChatApp());
+  runApp(
+    Provider(create: (BuildContext context) => AuthService(), child: ChatApp()),
+  );
 }
 
 class ChatApp extends StatelessWidget {
