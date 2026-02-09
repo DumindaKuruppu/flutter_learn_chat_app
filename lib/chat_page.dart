@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:learn_flutter/counter_demo.dart';
 import 'package:learn_flutter/models/chat_message_entity.dart';
 import 'package:learn_flutter/models/image_modal.dart';
+import 'package:learn_flutter/repository/image_repository.dart';
 import 'package:learn_flutter/widgets/chat_bubble.dart';
 import 'package:learn_flutter/widgets/chat_input.dart';
 
@@ -40,23 +41,8 @@ class _ChatPageState extends State<ChatPage> {
         });
   }
 
-  _getNetworkImages() async {
-    var endpointUrl = Uri.parse('https://pixelford.com/api2/images');
-    final response = await http.get(endpointUrl);
-
-    if (response.statusCode == 200) {
-      final List<dynamic> decodedList = jsonDecode(response.body) as List;
-      final List<PixelFordImage> imageList = decodedList.map((listItem) {
-        return PixelFordImage.fromJson(listItem);
-      }).toList();
-
-      print(imageList[0].urlFullSize);
-    }
-  }
-
   @override
   void initState() {
-    _getNetworkImages();
     _loadInitialMessages();
     super.initState();
   }
