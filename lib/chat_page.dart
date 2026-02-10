@@ -69,7 +69,10 @@ class _ChatPageState extends State<ChatPage> {
               );
             },
             child: IconButton(
-              onPressed: () => {Navigator.pushReplacementNamed(context, '/')},
+              onPressed: () => {
+                context.read<AuthService>().logoutUser(),
+                Navigator.pushReplacementNamed(context, '/'),
+              },
               icon: Icon(Icons.logout),
             ),
           ),

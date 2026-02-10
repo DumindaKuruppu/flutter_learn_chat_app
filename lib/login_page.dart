@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter/services/auth_service.dart';
 import 'package:learn_flutter/utils/spacers.dart';
 import 'package:learn_flutter/widgets/login_text.dart';
+import 'package:provider/provider.dart';
 import 'package:social_media_buttons/social_media_button.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,11 +10,9 @@ class LoginPage extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
 
-  void loginUser(context) {
+  Future<void> loginUser(BuildContext context) async {
     if (_formKey.currentState != null && _formKey.currentState!.validate()) {
-      print("Login Success!");
-      print(userNameController.text);
-      print(passwordController.text);
+      await context.read<AuthService>().loginUser(userNameController.text);
       Navigator.pushReplacementNamed(
         context,
         '/chat',
@@ -107,8 +107,8 @@ class LoginPage extends StatelessWidget {
               ),
               verticalSpacing(24),
               ElevatedButton(
-                onPressed: () {
-                  loginUser(context);
+                onPressed: () async {
+                  await loginUser(context);
                 },
                 child: Text(
                   "Login",
