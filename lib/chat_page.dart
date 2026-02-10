@@ -53,7 +53,7 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    final userName = ModalRoute.of(context)!.settings.arguments as String;
+    final userName = context.watch<AuthService>().getUserName();
 
     return Scaffold(
       appBar: AppBar(
@@ -68,12 +68,22 @@ class _ChatPageState extends State<ChatPage> {
                 ),
               );
             },
-            child: IconButton(
-              onPressed: () => {
-                context.read<AuthService>().logoutUser(),
-                Navigator.pushReplacementNamed(context, '/'),
-              },
-              icon: Icon(Icons.logout),
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: () => {
+                    context.read<AuthService>().updateUserName("New User!"),
+                  },
+                  icon: Icon(Icons.edit_note),
+                ),
+                IconButton(
+                  onPressed: () => {
+                    context.read<AuthService>().logoutUser(),
+                    Navigator.pushReplacementNamed(context, '/'),
+                  },
+                  icon: Icon(Icons.logout),
+                ),
+              ],
             ),
           ),
         ],
